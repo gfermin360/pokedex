@@ -4,17 +4,14 @@
   background-color: #0c0c0c8f;
   position: absolute;
   top: 0;
+  display: flex;
+  justify-content: center;
 }
 
 
 .loading__modal__container {
-  height: 100%;
-  width: 100%;
-  top: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: absolute;
 }
 
 .loading__modal__pokeball__container {
@@ -29,6 +26,7 @@
   animation: rotate 0.5s linear infinite;
   position: fixed;
   top: 40%;
+  z-index: 3;
 }
 
 
