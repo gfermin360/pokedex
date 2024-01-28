@@ -11,7 +11,7 @@ const PokedexPage = ( { modalLoading, setModalLoading } ) => {
 
   const [inputValue, setInputValue] = useState('')
   const [typeSelected, setTypeSelected] = useState('allPokemons')
-  const [verification, setVerification] = useState()
+  const [verification, setVerification] = useState(1)
 
   const trainerName = useSelector(states => states.trainer)
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=80&offset=0'
