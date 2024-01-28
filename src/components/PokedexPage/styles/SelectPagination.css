@@ -1,0 +1,11 @@
+.select__pagination__container {
+  height: 100%;
+}
+
+
+.select__pagination {
+  height: 100%;
+  border: none;
+  width: auto;
+  box-shadow: #00000080 1px 2px 3px 1px;
+}

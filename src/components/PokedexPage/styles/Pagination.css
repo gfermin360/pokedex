@@ -1,0 +1,100 @@
+.pagination {
+  width: 100%;
+  height: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding-bottom: 3em;
+}
+
+.pagination__button__previous,
+.pagination__button__next {
+  height: 100%;
+  border: none;
+  width: 5em;
+  background-color: #FE1936;
+  color: #fff;
+  box-shadow: #00000080 1px 2px 3px 1px;
+}
+
+.pagination__button__icon {
+  font-size: 1.5rem;
+}
+
+.pagination__ul {
+  height: 100%;
+  display: flex;
+  gap: 0.3em;
+}
+
+.pagination__li {
+  background-color: #FE1936;
+  height: 100%;
+}
+
+.pagination__ul__li__button{
+  height: 100%;
+  border: none;
+  width: 3em;
+  background-color: #fff;
+}
+
+.pagination__ul__container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.pagination__ul__group__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 0.2em;
+}
+
+.is-current {
+  background-color: #FE1936;
+  color: #fff;
+  box-shadow: #00000080 1px 2px 3px 1px;
+}
+
+.is-disabled {
+  background-color: #00000017;
+  color: #00000050;
+}
+
+.is-none {
+  display: none;
+}
+
+.pagination__selects {
+  height: 100%;
+  display: flex;
+  gap: 1.5em;
+}
+
+@media (max-width:768px) {
+
+  .pagination {
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  .pagination__selects {
+    height: 100%;
+    gap: 2em;
+  }
+
+  .pagination__ul__container,
+  .pagination__button__previous,
+  .pagination__button__next,
+  .pagination__button__previous,
+  .pagination__selects  {
+    height: 3em;
+  }
+
+}
+

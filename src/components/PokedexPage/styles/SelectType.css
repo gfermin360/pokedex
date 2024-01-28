@@ -1,0 +1,28 @@
+.body__select__container {
+  width: 30%;
+}
+
+.select {
+  height: 100%;
+  width: 100%;
+  border: none;
+  box-shadow: #00000080 1px 2px 3px 1px;
+  padding: 0.7em;
+}
+
+
+@media (max-width:768px) {
+
+  .select {
+    margin: 1.5em 0;
+    height: 3em;
+    width: 100%;
+  }
+
+  .body__select__container {
+    width: 100%;
+  }
+
+  
+
+}

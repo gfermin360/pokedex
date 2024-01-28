@@ -1,0 +1,65 @@
+.loading__modal {
+  height: 100%;
+  width: 100%;
+  background-color: #0c0c0c8f;
+  position: absolute;
+  top: 0;
+}
+
+
+.loading__modal__container {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.loading__modal__pokeball__container {
+  background: linear-gradient(to bottom, red 50%, white 50%);  width: 3.8em;
+  height: 3.8em;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(360deg);
+  animation: rotate 0.5s linear infinite;
+  position: fixed;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform:  scale(1);
+  }
+  100% {
+    transform:  scale(1.3);
+  }
+}
+
+
+.loading__modal__pokeball__div2 {
+  height: 0.3em;
+  width: 100%;
+  background-color: #0C0C0C;
+  position: absolute;
+  z-index: 2;
+}
+
+.loading__modal__pokeball__div6 {
+  background-color: #fff;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 5;
+
+  border: solid 0.3em #0C0C0C;
+}
+
+.modalOff {
+  transform: scale(0);
+}

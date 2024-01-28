@@ -1,0 +1,109 @@
+.body {
+  padding: 0 5.5em;
+}
+
+.body__cars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 2em;
+  margin-bottom: 4em;
+}
+
+.body__welcome__text {
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.body__welcome__text__span {
+  color: #FE1936;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.body__form__container {
+  height: 3em;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 0 3em 0;
+  width: 100%;
+}
+
+.body__form {
+  width: 70%;
+}
+
+.body__form__input {
+  height: 100%;
+  width: 70%;
+  border: none;
+  box-shadow: #00000080 1px 2px 3px 1px;
+  padding: 0.7em;
+}
+
+.body__form__input::placeholder {
+  opacity: 0.5;
+}
+
+.body__form__button {
+  height: 100%;
+  border: none;
+  width: 20%;
+  background-color: #FE1936;
+  color: #fff;
+  box-shadow: #00000080 1px 2px 3px 1px;
+}
+
+.body__error__message {
+  height: 8em;
+  text-align: center;
+}
+
+.body__error__message__h2 {
+  font-size: 1.3rem;
+}
+
+.body__error__message__h2__span {
+  color: #FE1936;
+}
+
+.errorOf {
+  transform: scale(0);
+  display: none;
+}
+
+
+@media (max-width:768px) {
+
+  .body,
+  .stats__body {
+    padding: 0 2em;
+  }
+
+  .body__form {
+    width: 100%;
+  }
+
+  .body__cars {
+    justify-content: space-around;
+    margin-top: 7em;
+  }
+
+  .body__form__input {
+    width: 70%;
+    height: 3em;
+  }
+
+  .body__form__button {
+    width: 30%;
+    height: 3em;
+
+  }
+
+  .body__form__container {
+    display: block;
+  }
+
+
+}
