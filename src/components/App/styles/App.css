@@ -1,0 +1,15 @@
+.app__container {
+  position: relative;
+}
+
+.loading__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: #0009;
+  z-index: 9999;
+}

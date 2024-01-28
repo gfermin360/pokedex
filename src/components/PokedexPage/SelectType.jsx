@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import useFetch from '../../hooks/useFetch'
 import './styles/SelectType.css'
+import { useDispatch } from 'react-redux'
+import { setLoadingModalG } from '../../store/states/loading.state'
 
-const SelectType = ( { setTypeSelected, modalLoading, setModalLoading} ) => {
+const SelectType = ( { setTypeSelected, setInputValue } ) => {
 
   const url = 'https://pokeapi.co/api/v2/type'
   const [types, getTypes] = useFetch(url)
@@ -11,19 +13,18 @@ const SelectType = ( { setTypeSelected, modalLoading, setModalLoading} ) => {
     getTypes()
   }, [])
 
-  useEffect(() => {
-
-    setTimeout(() => {
-      setModalLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según sea necesario
-
-}, [modalLoading]);
+  
 
   const typeRef = useRef()
+  const dispatch = useDispatch()
 
   const handleChange = () => {
+    setInputValue('')
+    dispatch(setLoadingModalG(true))
     setTypeSelected(typeRef.current.value)
-    setModalLoading(true)
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   };
 
 

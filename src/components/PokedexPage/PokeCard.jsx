@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch"
 import { useNavigate } from "react-router-dom"
 import './styles/PokeCard.css'
 
-const PokeCard = ({ url, setModalLoading }) => {
+const PokeCard = ({ url }) => {
 
   const [pokemon, getPokemon] = useFetch(url)
 
@@ -18,7 +18,6 @@ const PokeCard = ({ url, setModalLoading }) => {
   const navigate = useNavigate()
   const handleNavigatePokemon = () => {
     navigate(`/pokedex/${pokemon.id}`)
-    setModalLoading(true)
   }
 
   return (

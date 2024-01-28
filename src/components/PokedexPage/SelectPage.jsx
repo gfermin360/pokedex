@@ -1,23 +1,20 @@
 import { useEffect, useRef } from "react"
 import './styles/SelectPage.css'
+import { useDispatch } from "react-redux"
+import { setLoadingModalG } from "../../store/states/loading.state"
 
-const SelectPage = ({ pageNumbers, setCurrentPage, modalLoading, setModalLoading }) => {
+const SelectPage = ({ pageNumbers, setCurrentPage }) => {
 
   const pageRef = useRef()
-
-  useEffect(() => {
-
-    setTimeout(() => {
-      setModalLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según sea necesario
-
-  }, [modalLoading]);
+  const dispatch = useDispatch()
 
   const handlePageChange = () => {
+    dispatch(setLoadingModalG(true))
     setCurrentPage(Number(pageRef.current.value))
-    setModalLoading(true)
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   }
-
 
   return (
     <div className="select__page__container">

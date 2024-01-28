@@ -2,9 +2,11 @@ import { useEffect } from 'react'
 import SelectPage from './SelectPage'
 import SelectPagination from './SelectPagination'
 import './styles/Pagination.css'
+import { useDispatch } from 'react-redux'
+import { setLoadingModalG } from '../../store/states/loading.state'
 
 
-const Pagination = ({ pokemonsForPage, currentPage, setCurrentPage, pokemons, setPokemonsForPage, modalLoading, setModalLoading }) => {
+const Pagination = ({ pokemonsForPage, currentPage, setCurrentPage, pokemons, setPokemonsForPage }) => {
 
   const totalPages = Math.ceil(Number(pokemons?.results.length) / Number(pokemonsForPage))
   const pageNumbers = []
@@ -29,29 +31,33 @@ const Pagination = ({ pokemonsForPage, currentPage, setCurrentPage, pokemons, se
 
   }
 
-  useEffect(() => {
+  const dispatch = useDispatch()
 
-    setTimeout(() => {
-      setModalLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según sea necesario
-
-}, [modalLoading]);
 
   const lastPage = superPages.at(-1).at(-1)
 
   const HandlePreviusPage = () => {
     setCurrentPage(currentPage - 1)
-    setModalLoading(true);
+    dispatch(setLoadingModalG(true))
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   }
 
   const HandleNextPage = () => {
     setCurrentPage(currentPage + 1)
-    setModalLoading(true);
+    dispatch(setLoadingModalG(true))
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   }
 
   const handleEspesificPage = (newNumberPage) => {
     setCurrentPage(newNumberPage)
-    setModalLoading(true);
+    dispatch(setLoadingModalG(true))
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   }
 
 
@@ -105,15 +111,10 @@ const Pagination = ({ pokemonsForPage, currentPage, setCurrentPage, pokemons, se
           pageNumbers={pageNumbers}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
-          setModalLoading= {setModalLoading}
-          modalLoading={modalLoading}
-
         />
 
         <SelectPagination
           setPokemonsForPage={setPokemonsForPage}
-          setModalLoading= {setModalLoading}
-          modalLoading={modalLoading}
           setCurrentPage={setCurrentPage}
         />
 

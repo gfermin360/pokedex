@@ -3,26 +3,28 @@ import HomePage from './pages/HomePage'
 import PokedexPage from './pages/PokedexPage'
 import PokemonPage from './pages/PokemonPage'
 import ProtecteRoutes from './pages/ProtecteRoutes'
+import { useSelector } from 'react-redux'
 import LoadingModal from './components/shared/LoadingModal'
-import { useState } from 'react'
+import './components/App/styles/App.css'
 
 function App() {
 
-  const [modalLoading, setModalLoading ] = useState(false)
-
+  const loading = useSelector(states => states.loading)
 
   return (
     <div className='app__container'>
+      { loading ? (
+        <div className='loading__container' >
+          <LoadingModal />
+        </div>
+      ) : ''}
       <Routes>
-        <Route path='/' element={<HomePage  setModalLoading= {setModalLoading} />} />
+        <Route path='/' element={<HomePage />} />
         <Route element={<ProtecteRoutes />} >
-          <Route path='/pokedex' element={<PokedexPage modalLoading={modalLoading} setModalLoading= {setModalLoading} />} />
-          <Route path='/pokedex/:id' element={<PokemonPage setModalLoading= {setModalLoading} />} />
+          <Route path='/pokedex' element={<PokedexPage />} />
+          <Route path='/pokedex/:id' element={<PokemonPage />} />
         </Route>
       </Routes>
-      <LoadingModal
-        modalLoading={modalLoading}
-      />
     </div>
   )
 }

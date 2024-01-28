@@ -6,24 +6,24 @@ import "../components/PokemonPage/styles/CardStats.css"
 import "../components/PokemonPage/styles/PokemonPage.css"
 import ReturnButton from "../components/PokemonPage/ReturnButton"
 import Header from "../components/shared/Header"
+import { useDispatch } from "react-redux"
+import { setLoadingModalG } from "../store/states/loading.state"
 
-const PokemonPage = ( { setModalLoading } ) => {
+const PokemonPage = ( { } ) => {
 
   const { id } = useParams()
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`
   const [pokemon, getPokemon] = useFetch(url)
 
+
+  const dispatch = useDispatch()
   useEffect(() => {
     getPokemon()
-  }, [])
-
-  useEffect(() => {
-
+    dispatch (setLoadingModalG(true))
     setTimeout(() => {
-      setModalLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según sea necesario
-
-}, []);
+      dispatch (setLoadingModalG(false))
+    }, 2000);
+  }, [])
 
   return (
     <div>
@@ -33,7 +33,6 @@ const PokemonPage = ( { setModalLoading } ) => {
           pokemon={pokemon}
         />
         <ReturnButton
-          setModalLoading= {setModalLoading}
         />
       </div>
     </div>

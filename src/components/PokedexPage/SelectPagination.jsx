@@ -1,23 +1,22 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import './styles/SelectPagination.css'
+import { useDispatch } from "react-redux"
+import { setLoadingModalG } from "../../store/states/loading.state"
 
-const SelectPagination = ({ setPokemonsForPage, modalLoading, setModalLoading, setCurrentPage }) => {
+const SelectPagination = ({ setPokemonsForPage, setCurrentPage }) => {
 
 
   const paginationRef = useRef()
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-
-    setTimeout(() => {
-      setModalLoading(false);
-    }, 2000); // Ajusta el tiempo de espera según sea necesario
-
-  }, [modalLoading]);
 
   const handlePaginationChange = () => {
+    dispatch(setLoadingModalG(true))
     setPokemonsForPage(Number(paginationRef.current.value))
-    setModalLoading(true)
     setCurrentPage(1)
+    setTimeout(() => {
+      dispatch(setLoadingModalG(false))
+    }, 2000);
   }
 
 

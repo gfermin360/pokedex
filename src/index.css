@@ -34,8 +34,3 @@ input {
 button {
   cursor: pointer;
 }
-
-.app__container {
-  position: relative;
-}
-

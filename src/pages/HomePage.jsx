@@ -1,12 +1,13 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { setTrainerG } from "../store/states/trainer.state"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import "../components/HomePage/styles/HomePage.css"
 import Footer from "../components/HomePage/Footer"
+import { setLoadingModalG } from "../store/states/loading.state"
 
-const HomePage = ( { setModalLoading } ) => {
-  
+const HomePage = ( { } ) => {
+
   const inputTrainer = useRef()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -14,9 +15,16 @@ const HomePage = ( { setModalLoading } ) => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(setTrainerG(inputTrainer.current.value.trim()))
-    setModalLoading(true)
     navigate('/pokedex')
   }
+
+  useEffect(() => {
+    dispatch (setLoadingModalG(true))
+    setTimeout(() => {
+      dispatch (setLoadingModalG(false))
+    }, 1500);
+  }, [])
+
 
   return (
     <div className="home__Container">
