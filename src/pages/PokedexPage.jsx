@@ -14,10 +14,10 @@ const PokedexPage = ( { modalLoading, setModalLoading } ) => {
   const [verification, setVerification] = useState(1)
 
   const trainerName = useSelector(states => states.trainer)
-  const url = 'https://pokeapi.co/api/v2/pokemon?limit=80&offset=0'
+  const url = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
   const [pokemons, getPokemons, getTypePokemon] = useFetch(url)
 
-  const [pokemonsForPage, setPokemonsForPage] = useState(12) // 12 Pokemones por pagina por default
+  const [pokemonsForPage, setPokemonsForPage] = useState(12) 
   const [currentPage, setCurrentPage] = useState(1)
 
   const lastIndex = currentPage * pokemonsForPage 
@@ -35,7 +35,7 @@ const PokedexPage = ( { modalLoading, setModalLoading } ) => {
 
       setTimeout(() => {
         setModalLoading(false);
-      }, 2000); // Ajusta el tiempo de espera según sea necesario
+      }, 2000); 
 
   }, [modalLoading]);
 

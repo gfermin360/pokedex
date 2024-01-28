@@ -14,8 +14,8 @@ const HomePage = ( { setModalLoading } ) => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(setTrainerG(inputTrainer.current.value.trim()))
-    navigate('/pokedex')
     setModalLoading(true)
+    navigate('/pokedex')
   }
 
   return (
